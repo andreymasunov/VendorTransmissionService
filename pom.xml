@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <groupId>Nightly_VendorTransmissionService</groupId>
+    <artifactId>Nightly_VendorTransmissionService</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <build>
+	<plugins>
+        <plugin>
+            <groupId>com.smartbear.soapui</groupId>
+            <artifactId>soapui-maven-plugin</artifactId>
+            <version>5.1.1</version>
+
+            <dependencies>
+                <dependency>
+                    <groupId>com.oracle</groupId>
+                    <artifactId>ojdbc6</artifactId>
+                    <version>11.2.0</version>
+                </dependency>
+            </dependencies>
+
+            <executions>
+                <execution>
+                    <id>Nightly_VendorTransmissionService</id>
+                    <configuration>
+                        <projectFile>Nightly_VendorTransmissionService.xml</projectFile>
+                        <outputFolder>target/surefire-reports</outputFolder>
+                        <junitReport>true</junitReport>
+                        <printReport>true</printReport>
+                        <testFailIgnore>true</testFailIgnore>
+						<projectProperties>
+						</projectProperties>
+                    </configuration>
+                    <goals>
+                        <goal>test</goal>
+                    </goals>
+                    <phase>test</phase>
+                </execution>
+            </executions>
+        </plugin>
+    </plugins>
+    </build>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>smartbear-sweden-plugin-repository</id>
+            <url>http://www.soapui.org/repository/maven2/</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+</project>
